@@ -1,6 +1,7 @@
 import React from "react";
-import { ScrollView, StyleSheet, View, Text } from "react-native-gesture-handler";
+import { ScrollView, StyleSheet, View, Text } from "react-native";
 import DefaultButtom from "../../components/common/defaultButton";
+import ExplanationCard from "../../components/Explanation/ExplanationCard";
 
 export default function AppExplanation(){
     function handleSetShowHome(){
@@ -9,10 +10,11 @@ export default function AppExplanation(){
     return(
         <View style={styles.container}>
             <ScrollView>
-                <View style={{alignItens: "center"}}>
+                <View style={{alignItems: "center"}}>
                     <Text style={styles.title}>
                         Antes, deixa {"\n"} eu te explicar...
                     </Text>
+                    <ExplanationCard />
                     <Text style={styles.descriptionCta}>
                         Pronto(a) para subir na vida ?
                     </Text>
@@ -55,18 +57,7 @@ const styles = StyleSheet.create({
     },
     description:{
         color: "white",
+        textAlign: "center",
+        marginBottom: 30,
     },
-    button:{
-        alignItems:"center",
-        justifyContent: "center",
-        borderWidth:1,
-        borderColor: "#FFFFFF",
-        borderRadius:10,
-        marginBottom:20,
-    },
-    buttonText:{
-        color: "#FFFFFF",
-        fontWeight: "bold",
-        fontSize: 20,
-    }
 })
