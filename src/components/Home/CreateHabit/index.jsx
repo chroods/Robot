@@ -1,9 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-export default function CreateHabit({habitAre, borderColor}){
+export default function CreateHabit({habitArea, borderColor}){
+    const navigation = useNavigation();
+
     function handleCreate(){
-        console.log(`Botão da area licado ${habitAre}`)
+        navigation.navigate("HabitPage",{
+            create: true,
+            habit: {habitArea: habitArea},
+        });
     }
 
     return(
@@ -13,7 +19,7 @@ export default function CreateHabit({habitAre, borderColor}){
             onPress={handleCreate}
         >
             <Text style={styles.habitTitle}>
-                Adiionar meta {habitAre === "Mente" ? "da" : "do"} {habitAre}
+                Adicionar meta {habitArea === "Mente" ? "da" : "do"} {habitArea}
             </Text>
         </TouchableOpacity>
     )
